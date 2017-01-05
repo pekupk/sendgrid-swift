@@ -59,6 +59,7 @@
 		776B04221D0B546100C21994 /* APIBlueprintTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776B04211D0B546100C21994 /* APIBlueprintTests.swift */; };
 		776B04271D0B64EA00C21994 /* SessionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776B04261D0B64EA00C21994 /* SessionTests.swift */; };
 		778593F11D0A3DC1009A3026 /* AuthenticationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778593F01D0A3DC1009A3026 /* AuthenticationTests.swift */; };
+		77906CD41E1DE3BD00705ED6 /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77906CD31E1DE3BD00705ED6 /* Types.swift */; };
 		779AD12A1CEAB07A00F5BC4F /* ASMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779AD1291CEAB07A00F5BC4F /* ASMTests.swift */; };
 		779AD1331CEAB7E200F5BC4F /* AttachmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779AD1321CEAB7E200F5BC4F /* AttachmentTests.swift */; };
 		779AD1351CEAB88B00F5BC4F /* dot.png in Resources */ = {isa = PBXBuildFile; fileRef = 779AD1341CEAB88B00F5BC4F /* dot.png */; };
@@ -143,6 +144,7 @@
 		776B04211D0B546100C21994 /* APIBlueprintTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIBlueprintTests.swift; sourceTree = "<group>"; };
 		776B04261D0B64EA00C21994 /* SessionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionTests.swift; sourceTree = "<group>"; };
 		778593F01D0A3DC1009A3026 /* AuthenticationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationTests.swift; sourceTree = "<group>"; };
+		77906CD31E1DE3BD00705ED6 /* Types.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Types.swift; path = Sources/Types.swift; sourceTree = SOURCE_ROOT; };
 		779AD1291CEAB07A00F5BC4F /* ASMTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASMTests.swift; sourceTree = "<group>"; };
 		779AD1321CEAB7E200F5BC4F /* AttachmentTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttachmentTests.swift; sourceTree = "<group>"; };
 		779AD1341CEAB88B00F5BC4F /* dot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dot.png; sourceTree = "<group>"; };
@@ -237,6 +239,7 @@
 			isa = PBXGroup;
 			children = (
 				770850C71CE6536F00861BA1 /* AddressTests.swift */,
+				77906CD31E1DE3BD00705ED6 /* Types.swift */,
 				776B04211D0B546100C21994 /* APIBlueprintTests.swift */,
 				779AD1291CEAB07A00F5BC4F /* ASMTests.swift */,
 				77474FFB1CE8FE1E00E5170E /* ContentTests.swift */,
@@ -539,6 +542,7 @@
 				770D1ACF1D8CB71D0084A3B2 /* BypassListManagement.swift in Sources */,
 				770D1AEF1D8CB71E0084A3B2 /* Validator.swift in Sources */,
 				770D1ACA1D8CB71D0084A3B2 /* APIV3.swift in Sources */,
+				77906CD41E1DE3BD00705ED6 /* Types.swift in Sources */,
 				770D1AE01D8CB71D0084A3B2 /* RateLimit.swift in Sources */,
 				770D1AEE1D8CB71E0084A3B2 /* Validatable.swift in Sources */,
 				770D1ADB1D8CB71D0084A3B2 /* JSONConvertible.swift in Sources */,

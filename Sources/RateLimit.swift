@@ -55,12 +55,19 @@ open class RateLimit {
      
      */
     class func rateLimitInfo(from response: URLResponse?) -> RateLimit? {
-        guard let http = response as? HTTPURLResponse,
-            let limitStr = http.allHeaderFields["X-RateLimit-Limit"] as? String,
+        guard let http = response as? HTTPURLResponse else { return nil }
+        
+        #if os(Linux)
+            let headers = http.allHeaderFields
+        #else
+            guard let headers = http.allHeaderFields as? [String:String] else { return nil }
+        #endif
+        
+        guard let limitStr = headers["X-RateLimit-Limit"],
             let li = Int(limitStr),
-            let remainStr = http.allHeaderFields["X-RateLimit-Remaining"] as? String,
+            let remainStr = headers["X-RateLimit-Remaining"],
             let re = Int(remainStr),
-            let dateStr = http.allHeaderFields["X-RateLimit-Reset"] as? String,
+            let dateStr = headers["X-RateLimit-Reset"],
             let date = Double(dateStr)
             else { return nil }
         return RateLimit(limit: li, remaining: re, resetDate: Date(timeIntervalSince1970: date))

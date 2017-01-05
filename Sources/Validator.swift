@@ -64,7 +64,7 @@ enum Validator {
     
     /// A bool indicating if the associated value is valid or not.
     var valid: Bool {
-        guard let regex = try? NSRegularExpression(pattern: self.pattern, options: [.caseInsensitive])
+        guard let regex = try? Regex(pattern: self.pattern, options: [.caseInsensitive])
             else { return false }
         return regex.numberOfMatches(in: self.input, options: [], range: NSMakeRange(0, self.input.characters.count)) > 0
     }

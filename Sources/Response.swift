@@ -50,14 +50,17 @@ open class Response: HTTPMessage, CustomStringConvertible {
     
     /// The headers of the response.
     open var messageHeaders: [String : String] {
-        guard let http = self.httpResponse?.allHeaderFields as? [String:String] else { return [:] }
-        return http
+        guard let http = self.httpResponse else { return [:] }
+        #if os(Linux)
+            return http.allHeaderFields
+        #else
+            return http.allHeaderFields as? [String:String] ?? [:]
+        #endif
     }
     
     /// The content type of the response abstracted from the urlResponse.
     open var contentType: ContentType {
-        guard let http = self.httpResponse,
-            let contentTypeHeader = http.allHeaderFields["Content-Type"] as? String
+        guard let contentTypeHeader = self.messageHeaders["Content-Type"]
             else { return ContentType.plainText }
         return ContentType(description: contentTypeHeader)
     }
@@ -65,7 +68,7 @@ open class Response: HTTPMessage, CustomStringConvertible {
     /// Returns the string representation of the `data` property, if able.
     open var stringValue: String? {
         guard let d = self.data else { return nil }
-        return NSString(data: d, encoding: String.Encoding.utf8.rawValue) as? String
+        return String(data: d, encoding: .utf8)
     }
     
     /// Returns the JSON representation of the `data` property, if able.

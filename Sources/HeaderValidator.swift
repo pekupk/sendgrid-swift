@@ -62,7 +62,7 @@ public extension HeaderValidator {
             if let _ = reserved.index(of: key.lowercased()) {
                 throw SGError.Mail.headerNotAllowed(key)
             }
-            let regex = try NSRegularExpression(pattern: "(\\s)", options: [.caseInsensitive, .anchorsMatchLines])
+            let regex = try Regex(pattern: "(\\s)", options: [.caseInsensitive, .anchorsMatchLines])
             if regex.numberOfMatches(in: key, options: [], range: NSMakeRange(0, key.characters.count)) > 0 {
                 throw SGError.Mail.malformedHeader(key)
             }
