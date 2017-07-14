@@ -93,9 +93,9 @@ public extension SGError {
         public var description: String {
             switch self {
             case .malformedEmailAddress(let email):
-                return String(format: (String.dummyLocalize(key: 
-                    "\"%@\" is not a valid email address. Please provide an RFC 5322 compliant email address.",
-                    comment: "Malformed email address")), email)
+                return String.dummyLocalize(key: 
+                    "\(email) is not a valid email address. Please provide an RFC 5322 compliant email address.",
+                    comment: "Malformed email address")
                 
             case .invalidScheduleDate:
                 return String.dummyLocalize(key: 
@@ -113,9 +113,9 @@ public extension SGError {
                     comment: "Missing recipients")
                 
             case .thresholdOutOfRange(let threshold):
-                return String(format: String.dummyLocalize(key: 
-                    "The spam checker app only accepts a threshold which is between 1 and 10 (attempted to use %i)",
-                    comment: "Threshold out of range"), threshold)
+                return String.dummyLocalize(key: 
+                    "The spam checker app only accepts a threshold which is between 1 and 10 (attempted to use \(threshold))",
+                    comment: "Threshold out of range")
                 
             case .tooManyUnsubscribeGroups:
                 return String.dummyLocalize(key: 
@@ -123,9 +123,9 @@ public extension SGError {
                     comment: "Too many unsubscribe groups")
                 
             case .invalidNumberOfPersonalizations:
-                return String(format: String.dummyLocalize(key: 
-                    "An `Email` must contain at least 1 personalization and cannot exceed %i personalizations.",
-                    comment: "Invalid number of personalizations"), Constants.PersonalizationLimit)
+                return String.dummyLocalize(key: 
+                    "An `Email` must contain at least 1 personalization and cannot exceed \(Constants.PersonalizationLimit) personalizations.",
+                    comment: "Invalid number of personalizations")
 
             case .missingContent:
                 return String.dummyLocalize(key: 
@@ -143,9 +143,9 @@ public extension SGError {
                     comment: "Invalid content order")
                 
             case .tooManyRecipients:
-                return String(format: String.dummyLocalize(key: 
-                    "Your `Email` instance contains too many recipients. The total number of recipients cannot exceed %i addresses. This includes all recipients defined within the `to`, `cc`, and `bcc` parameters, across each `Personalization` instance that you include in the personalizations array.",
-                    comment: "Too many recipients"), Constants.RecipientLimit)
+                return String.dummyLocalize(key: 
+                    "Your `Email` instance contains too many recipients. The total number of recipients cannot exceed \(Constants.RecipientLimit) addresses. This includes all recipients defined within the `to`, `cc`, and `bcc` parameters, across each `Personalization` instance that you include in the personalizations array.",
+                    comment: "Too many recipients")
                 
             case .missingSubject:
                 return String.dummyLocalize(key: 
@@ -153,44 +153,44 @@ public extension SGError {
                     comment: "Missing subject")
                 
             case .headerNotAllowed(let header):
-                return String(format: (String.dummyLocalize(key: 
-                    "The \"%@\" header is a reserved header, and cannot be used in the `headers` property.",
-                    comment: "Header not allowed")), header)
+                return String.dummyLocalize(key: 
+                    "The \(header) header is a reserved header, and cannot be used in the `headers` property.",
+                    comment: "Header not allowed")
                 
             case .malformedHeader(let header):
-                return String(format: (String.dummyLocalize(key: 
-                    "Invalid header \"%@\": When defining the headers that you would like to use, you must make sure that the header's name contains only ASCII characters and no spaces.",
-                    comment: "Malformed header")), header)
+                return String.dummyLocalize(key: 
+                    "Invalid header \(header): When defining the headers that you would like to use, you must make sure that the header's name contains only ASCII characters and no spaces.",
+                    comment: "Malformed header")
                 
             case .tooManyCategories:
-                return String(format: (String.dummyLocalize(key: 
-                    "You cannot have more than %i categories associated with an email.",
-                    comment: "Too many categories")), Constants.Categories.TotalLimit)
+                return String.dummyLocalize(key: 
+                    "You cannot have more than \(Constants.Categories.TotalLimit) categories associated with an email.",
+                    comment: "Too many categories")
                 
             case .categoryTooLong(let category):
-                return String(format: (String.dummyLocalize(key: 
-                    "A category cannot have more than %i characters (attempted to use category named \"%@\").",
-                    comment: "Category too long")), Constants.Categories.CharacterLimit, category)
+                return String.dummyLocalize(key: 
+                    "A category cannot have more than \(Constants.Categories.CharacterLimit) characters (attempted to use category named \(category)).",
+                    comment: "Category too long")
                 
             case .tooManySubstitutions:
-                return String(format: (String.dummyLocalize(key: 
-                    "You cannot have more than %i substitutions in a personalization.",
-                    comment: "Too many substitutions")), Constants.SubstitutionLimit)
+                return String.dummyLocalize(key: 
+                    "You cannot have more than \(Constants.SubstitutionLimit) substitutions in a personalization.",
+                    comment: "Too many substitutions")
                 
             case .invalidContentType(let contentType):
-                return String(format: (String.dummyLocalize(key: 
-                    "Invalid content type \"%@\": Content types cannot contain ‘;’, spaces, or CRLF characters, and must be at least 1 character long.",
-                    comment: "Invalid content type")), contentType)
+                return String.dummyLocalize(key: 
+                    "Invalid content type \(contentType): Content types cannot contain ‘;’, spaces, or CRLF characters, and must be at least 1 character long.",
+                    comment: "Invalid content type")
                 
             case .duplicateRecipient(let recipient):
-                return String(format: (String.dummyLocalize(key: 
-                    "Each unique email address in the `personalizations` array should only be included once. You have included \"%@\" more than once.",
-                    comment: "Duplicate recipient")), recipient)
+                return String.dummyLocalize(key: 
+                    "Each unique email address in the `personalizations` array should only be included once. You have included \(recipient) more than once.",
+                    comment: "Duplicate recipient")
                 
             case .tooManyCustomArguments(let amount, let args):
-                var error = String(format: String.dummyLocalize(key: 
-                    "Each personalized email cannot have custom arguments exceeding %i bytes. The email you're attempting to send has %i bytes.",
-                    comment: "Too many custom arguments"), Constants.CustomArguments.MaximumBytes, amount)
+                var error = String.dummyLocalize(key: 
+                    "Each personalized email cannot have custom arguments exceeding \(Constants.CustomArguments.MaximumBytes) bytes. The email you're attempting to send has \(amount) bytes.",
+                    comment: "Too many custom arguments")
                 if let a = args {
                     error += "  " + (String.dummyLocalize(key: 
                         "The offending custom args are below:",
@@ -199,14 +199,14 @@ public extension SGError {
                 return error
                 
             case .invalidContentID(let contentID):
-                return String(format: (String.dummyLocalize(key: 
-                    "Invalid content ID \"%@)\" for attachment: Content IDs cannot contain ‘;’, spaces, or CRLF characters, and must be at least 1 character long.",
-                    comment: "Invalid content ID")), contentID)
+                return String.dummyLocalize(key: 
+                    "Invalid content ID \(contentID) for attachment: Content IDs cannot contain ‘;’, spaces, or CRLF characters, and must be at least 1 character long.",
+                    comment: "Invalid content ID")
 
             case .invalidFilename(let filename):
-                return String(format: (String.dummyLocalize(key: 
-                    "Invalid filename %@ for attachment: Filenames cannot contain ‘;’, spaces, or CRLF characters, and must be at least 1 character long.",
-                    comment: "Invalid filename")), filename)
+                return String.dummyLocalize(key: 
+                    "Invalid filename \(filename) for attachment: Filenames cannot contain ‘;’, spaces, or CRLF characters, and must be at least 1 character long.",
+                    comment: "Invalid filename")
             }
         }
     }

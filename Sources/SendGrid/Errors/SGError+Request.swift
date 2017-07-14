@@ -39,9 +39,9 @@ public extension SGError {
         public var description: String {
             switch self {
             case .nonConformingRequest(let object):
-                return String(format: (String.dummyLocalize(key: 
-                    "Could not build an `NSURLRequest` from `%@` as it doesn't conform to `Request`.",
-                    comment: "Non-conforming request")),  String(describing: object))
+                return (String.dummyLocalize(key: 
+                    "Could not build an `NSURLRequest` from `%@` as it doesn't conform to `Request` \(object).",
+                    comment: "Non-conforming request"))
                 
             case .unableToConstructUrl:
                 return String.dummyLocalize(key: 
@@ -54,9 +54,9 @@ public extension SGError {
                     comment: "Authorization header error")
                 
             case .impersonationNotSupported(let object):
-                return String(format: String.dummyLocalize(key: 
-                    "The `%@` class does not support subuser impersonation. Please try making your request again leaving the `onBehalfOf` parameter `nil`.",
-                    comment: "Impersonation not supported"), String(describing: object))
+                return String.dummyLocalize(key: 
+                    "The `%@` class does not support subuser impersonation. Please try making your request again leaving the `onBehalfOf` parameter `nil`. \(object)",
+                    comment: "Impersonation not supported")
             }
         }
     }
