@@ -76,8 +76,11 @@ open class Session {
         // Get the NSURLRequest
         let payload = try request.request(for: self, onBehalfOf: onBehalfOf)
         
+        // Swift 3.1.1 – URLSession.shared not implemented on Linux.
+        let session=URLSession();
+        
         // Make the HTTP request
-        let task = URLSession.shared.dataTask(with: payload) { (data, response, error) in
+        let task = session.dataTask(with: payload) { (data, response, error) in
             let resp = Response(request: request, data: data, urlResponse: response)
             completionHandler(resp, error)
         }
