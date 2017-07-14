@@ -39,9 +39,9 @@ public extension SGError {
         public var description: String {
             switch self {
             case .nonConformingRequest(let object):
-                return String(format: NSLocalizedString(
+                return String(format: (NSLocalizedString(
                     "Could not build an `NSURLRequest` from `%@` as it doesn't conform to `Request`.",
-                    comment: "Non-conforming request"),  String(describing: object))
+                    comment: "Non-conforming request")),  String(describing: object))
                 
             case .unableToConstructUrl:
                 return NSLocalizedString(

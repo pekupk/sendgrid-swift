@@ -38,9 +38,9 @@ public extension SGError {
                     comment: "Authentication missing")
                 
             case .authenticationTypeNotAllowed(let object, let authType):
-                return String(format: NSLocalizedString(
+                return String(format: (NSLocalizedString(
                     "The `%@` class does not allow authentication with %@s. Please try using another Authentication type.",
-                    comment: "Authentication type not allowed"), String(describing: object), String(describing: authType))
+                    comment: "Authentication type not allowed")), String(describing: object), String(describing: authType))
             }
         }
     }

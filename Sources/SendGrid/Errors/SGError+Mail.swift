@@ -204,9 +204,9 @@ public extension SGError {
                     comment: "Invalid content ID")), contentID)
 
             case .invalidFilename(let filename):
-                return String(format: NSLocalizedString(
+                return String(format: (NSLocalizedString(
                     "Invalid filename %@ for attachment: Filenames cannot contain ‘;’, spaces, or CRLF characters, and must be at least 1 character long.",
-                    comment: "Invalid filename"), filename)
+                    comment: "Invalid filename")), filename)
             }
         }
     }
