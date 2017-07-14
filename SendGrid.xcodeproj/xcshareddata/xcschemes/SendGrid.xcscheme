@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "OBJ_98"
+               BlueprintIdentifier = "OBJ_99"
                BuildableName = "SendGrid.framework"
                BlueprintName = "SendGrid"
                ReferencedContainer = "container:SendGrid.xcodeproj">
@@ -32,7 +32,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "OBJ_145"
+               BlueprintIdentifier = "OBJ_147"
                BuildableName = "SendGridTests.xctest"
                BlueprintName = "SendGridTests"
                ReferencedContainer = "container:SendGrid.xcodeproj">
@@ -55,7 +55,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "OBJ_98"
+            BlueprintIdentifier = "OBJ_99"
             BuildableName = "SendGrid.framework"
             BlueprintName = "SendGrid"
             ReferencedContainer = "container:SendGrid.xcodeproj">

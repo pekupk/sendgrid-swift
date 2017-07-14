@@ -52,12 +52,12 @@ public struct Constants {
     public struct SubscriptionTracking {
         
         /// The default verbiage for the plain text unsubscribe footer.
-        public static let DefaultPlainText = NSLocalizedString(
+        public static let DefaultPlainText = String.dummyLocalize(key: 
             "If you would like to unsubscribe and stop receiving these emails click here: <% %>.",
             comment: "Default subscription tracking text")
         
         /// The default verbiage for the HTML text unsubscribe footer.
-        public static let DefaultHTMLText = NSLocalizedString(
+        public static let DefaultHTMLText = String.dummyLocalize(key: 
             "<p>If you would like to unsubscribe and stop receiving these emails <% click here %>.</p>",
             comment: "Default subscription tracking HTML")
     }

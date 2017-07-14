@@ -33,12 +33,12 @@ public extension SGError {
         public var description: String {
             switch self {
             case .authenticationMissing:
-                return NSLocalizedString(
+                return String.dummyLocalize(key: 
                     "Could not make an HTTP request as there was no `Authentication` configured on `Session`. Please set the `authentication` property before calling `send` on `Session`.",
                     comment: "Authentication missing")
                 
             case .authenticationTypeNotAllowed(let object, let authType):
-                return String(format: (NSLocalizedString(
+                return String(format: (String.dummyLocalize(key: 
                     "The `%@` class does not allow authentication with %@s. Please try using another Authentication type.",
                     comment: "Authentication type not allowed")), String(describing: object), String(describing: authType))
             }
